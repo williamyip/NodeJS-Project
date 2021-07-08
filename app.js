@@ -7,6 +7,6 @@ if(amount < 10) {
 else{
     console.log('large number');
 }
-//test22
+//test222
 
 console.log('Hello world!');
