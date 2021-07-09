@@ -1,12 +1,13 @@
-const amount = 9
+// Modules
+const names = require('./4-names')
+const sayHi = require('./5-utils')
 
-if(amount < 10) {
-    console.log('small number');
-}
 
-else{
-    console.log('large number');
-}
-//test222
+const data = require('./6-alternative-flavour')
+require('./7-mind-grenade')
+console.log(data)
+// sayHi('susan')
+// sayHi(names.john)
+// sayHi(names.peter)
 
-console.log('Hello world!');
+// console.log(sayHi)
