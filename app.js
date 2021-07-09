@@ -1,13 +1,17 @@
-// Modules
-const names = require('./4-names')
-const sayHi = require('./5-utils')
+const http = require('http')
 
+const server = http.createServer((req,res)=>{
+    if(req.url == '/'){
+        res.end('Welcome to our home page')
+    }
+    if(req.url == '/about'){
+        res.end('Here is our short history')
+    }
+    res.end(`
+    <h1> Opps! </h1>
+    <p>We cant seem to find the page you're looking for</p>
+    <a href ="/">back home</a>
+    `)
+})
 
-const data = require('./6-alternative-flavour')
-require('./7-mind-grenade')
-console.log(data)
-// sayHi('susan')
-// sayHi(names.john)
-// sayHi(names.peter)
-
-// console.log(sayHi)
+server.listen(5000)
