@@ -1,17 +1,9 @@
-const http = require('http')
+const { createReadStream, utimes } = require(`fs`);
 
-const server = http.createServer((req,res)=>{
-    if(req.url == '/'){
-        res.end('Welcome to our home page')
-    }
-    if(req.url == '/about'){
-        res.end('Here is our short history')
-    }
-    res.end(`
-    <h1> Opps! </h1>
-    <p>We cant seem to find the page you're looking for</p>
-    <a href ="/">back home</a>
-    `)
+const stream = createReadStream(`./content/big2.txt`, { highWaterMark:90000 });
+
+stream.on('data', (result)=>{
+  console.log(result)
 })
 
-server.listen(5000)
+stream.on('error', (err) => console.log(error))
